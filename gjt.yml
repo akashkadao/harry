@@ -1,0 +1,26 @@
+--- 
+- 
+  name: "apply common configuratuon to all nodes"
+ 
+  become: true
+  become_method: sudo
+  hosts: all
+  roles: 
+    - java
+- 
+  name: "configure and deploy the gitserver and application code"
+ 
+  become: true
+  become_method: sudo
+  hosts: gitserver
+  roles: 
+    - git
+- 
+  name: "configure and deploy the treeserver and application code"
+ 
+  become: true
+  become_method: sudo
+  hosts: treeserver
+  roles: 
+    - tree
+
