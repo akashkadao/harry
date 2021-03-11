@@ -1,0 +1,8 @@
+---
+ - hosts: 172.31.23.44
+   tasks:
+     - name: Fetch the file from the 172.31.23.44 to master
+       run_once: yes
+       fetch: src=/home/devops/hello.txt dest=/home/devops/ flat=yes
+       when: "{{ inventory_hostname == '172.31.23.44' }}"
+
